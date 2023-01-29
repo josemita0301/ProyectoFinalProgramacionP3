@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ProyectoFinalProgramacion.Models"
+             x:Class="ProyectoFinalProgramacion.Views.RegisterPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="RegisterPage"
+             Shell.FlyoutBehavior = "Disabled"
+             Shell.FlyoutItemIsVisible="False">
+    
+    <ScrollView Margin="20">
+        <StackLayout>
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="register1.png"
+                   SemanticProperties.Description="Form icon!"
+                   HeightRequest="64" />
+                <Label FontSize="22" FontAttributes="Bold" Text="Register Page" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Label FontSize="18" FontAttributes="Bold" Text="Please fill out the information below:" VerticalOptions="Center" />
+                <Label FontSize="22" VerticalOptions="End" />
+            </HorizontalStackLayout>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="User Name" Margin="0,5,5,0"/>
+            <Entry x:Name="userNameInput"
+                   Placeholder="User Name" PlaceholderColor="Gray" Text="{Binding UserName}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Name" Margin="0,5,5,0"/>
+            <Entry x:Name="nameInput"
+                     Placeholder="Name" PlaceholderColor="Gray" Text="{Binding name}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Surname" Margin="0,5,5,0"/>
+            <Entry x:Name="surnameInput"
+                     Placeholder="Surname" PlaceholderColor="Gray" Text="{Binding surname}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Mail" Margin="0,5,5,0"/>
+            <Entry x:Name="mailInput"
+                     Placeholder="Mail" PlaceholderColor="Gray" Text="{Binding Email}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Password" Margin="0,5,5,0"/>
+            <Entry x:Name="passwordInput"
+                     Placeholder="Password" PlaceholderColor="Gray" IsPassword="True" Text="{Binding Password}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Area" Margin="0,5,5,0"/>
+            <Entry x:Name="areaInput"
+                     Placeholder="Area" PlaceholderColor="Gray" Text="{Binding area}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Phone Number" Margin="0,5,5,0"/>
+            <Entry x:Name="phoneInput"
+                     Placeholder="Phone Number" PlaceholderColor="Gray" Text="{Binding phoneNumber}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Icon" Margin="0,5,5,0"/>
+
+            <RadioButton x:Name="rb1" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user1.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+            <RadioButton x:Name="rb2" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user2.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+            <RadioButton x:Name="rb3" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user3.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+            <RadioButton x:Name="rb4" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user4.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+            <RadioButton x:Name="rb5" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user5.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+            <RadioButton x:Name="rb6" GroupName="iconGroup" IsChecked="False">
+            </RadioButton>
+            <Image Source="user6.png" HeightRequest="50" HorizontalOptions="Start" />
+
+
+            <Button Text="Enter" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="RegisterClick"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalProgramacion.Views.FormPage"
+             Title="FormPage">
+    <ScrollView Margin="20">
+        <StackLayout>
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="form_icon.png"
+                   SemanticProperties.Description="Form icon!"
+                   HeightRequest="64" />
+                <Label FontSize="22" FontAttributes="Bold" Text="Adoption Form" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Label FontSize="22" Text="Fill out the adoption form as a last step!" VerticalOptions="End" />
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Enter the dog's name you want to adopt" Margin="0,5,5,0"/>
+            <Entry x:Name="dogNameInput"
+                     Placeholder="Dog's name:" PlaceholderColor="Gray"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Why do you want to adopt a dog?" Margin="0,5,5,0"/>
+            <Entry x:Name="motivInput"
+                     Placeholder="Enter your motivation for adopting a dog:" PlaceholderColor="Gray"/>
+
+            <StackLayout RadioButtonGroup.GroupName="moreDogs">
+                <Label FontSize="14" FontAttributes="Bold" Text="Do you currently have more dogs?" Margin="0,5,5,0"/>
+                <RadioButton x:Name="moreDogsY" Value="Yes" Content="Yes" />
+                <RadioButton x:Name="moreDogsN" Value="No" Content="No" />
+            </StackLayout>
+
+            <StackLayout RadioButtonGroup.GroupName="prevDogs">
+                <Label FontSize="14" FontAttributes="Bold" Text="Have you had other dogs in the past?" Margin="0,5,5,0"/>
+                <RadioButton x:Name="prevDogsY" Value="Yes" Content="Yes" />
+                <RadioButton x:Name="prevDogsN" Value="No" Content="No" />
+            </StackLayout>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="What happened with the previous dog(s)?" Margin="0,5,5,0"/>
+            <Entry x:Name="prevDogsInput"
+                     Placeholder="Enter information about the relationship with your previous dog(s):" PlaceholderColor="Gray"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Enter an e-mail contact" Margin="0,5,5,0"/>
+            <Entry x:Name="emailContactInput"
+                     Placeholder="Enter an e-mail contact:" PlaceholderColor="Gray"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Commitment statement" Margin="0,5,5,0"/>
+            <Label FontSize="12" FontAttributes="Italic" Text="You are going to be a responsible companion to the dog. If you agree, we will get you in contact with the current owner." Margin="0,5,5,0"/>
+            <CheckBox x:Name="agree" CheckedChanged="OnCheckBoxCheckedChanged"/>
+
+
+            <Button x:Name="Submit" Text="Submit form" Clicked="Submit_Clicked" Margin="0,5,5,0" IsEnabled="False"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

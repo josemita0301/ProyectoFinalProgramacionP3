@@ -1,4 +1,6 @@
-﻿namespace ProyectoFinalProgramacion;
+﻿using ProyectoFinalProgramacion.Data;
+
+namespace ProyectoFinalProgramacion;
 
 public static class MauiProgram
 {
@@ -12,7 +14,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+        string dbPath = FileAccessHelper.GetLocalFilePath("betterHome.db3");
+        builder.Services.AddSingleton<BetterHomeDatabase>(s => ActivatorUtilities.CreateInstance<BetterHomeDatabase>(s, dbPath));
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

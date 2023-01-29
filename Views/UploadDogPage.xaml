@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalProgramacion.Views.UploadDogPage"
+             Title="UploadDog"
+             Shell.FlyoutBehavior = "Flyout"
+             Shell.FlyoutItemIsVisible="True">
+    <ScrollView Margin="20">
+        <StackLayout>
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="adoptme1.webp"
+                   SemanticProperties.Description="Adopt me icon!"
+                   HeightRequest="64" />
+                <Label FontSize="22" FontAttributes="Bold" Text="Put a dog up for adoption!" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Label FontSize="18" FontAttributes="Bold" Text="Please fill out the information below:" VerticalOptions="Center" />
+                <Label FontSize="22" VerticalOptions="End" />
+            </HorizontalStackLayout>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Name" Margin="0,5,5,0"/>
+            <Entry x:Name="nameInput"
+                   Placeholder="Name" PlaceholderColor="Gray" Text="{Binding Name}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Aprox. Age" Margin="0,5,5,0"/>
+            <Entry x:Name="ageInput"
+                     Placeholder="Aprox. Age" PlaceholderColor="Gray" Text="{Binding Age}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Address" Margin="0,5,5,0"/>
+            <Entry x:Name="addressInput"
+                     Placeholder="Address" PlaceholderColor="Gray" Text="{Binding Address}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Description" Margin="0,5,5,0"/>
+            <Entry x:Name="descriptionInput"
+                     Placeholder="Description" PlaceholderColor="Gray" Text="{Binding Description}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Color" Margin="0,5,5,0"/>
+            <Entry x:Name="colorInput"
+                     Placeholder="Color" PlaceholderColor="Gray" Text="{Binding Color}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Size" Margin="0,5,5,0"/>
+            <Entry x:Name="sizeInput"
+                     Placeholder="Size" PlaceholderColor="Gray" Text="{Binding Size}"/>
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Contact email" Margin="0,5,5,0"/>
+            <Entry x:Name="emailInput"
+                     Placeholder="Contact email" PlaceholderColor="Gray" Text="{Binding Email}"/>
+
+            <StackLayout RadioButtonGroup.GroupName="vax" >
+                <Label FontSize="14" FontAttributes="Bold" Text="Is the dog vaccinated?" Margin="0,5,5,0"/>
+                <RadioButton Value="Yes" Content="Yes" IsChecked="True"/>
+                <RadioButton Value="No" Content="No" />
+            </StackLayout>
+
+            <StackLayout RadioButtonGroup.GroupName="icon">
+                <Label FontSize="14" FontAttributes="Bold" Text="How does the dog look?" Margin="0,5,5,0"/>
+
+                <RadioButton x:Name="rb1" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog1.webp" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <RadioButton x:Name="rb2" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog2.webp" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <RadioButton x:Name="rb3" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog3.webp" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <RadioButton x:Name="rb4" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog4.webp" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <RadioButton x:Name="rb5" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog5.webp" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <RadioButton x:Name="rb6" GroupName="iconGroup" IsChecked="False">
+                </RadioButton>
+                <Image Source="dog6.webp" HeightRequest="50" HorizontalOptions="Start"/>
+            </StackLayout>
+
+            <Button Text="Enter" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="UploadDogClicked"/>
+            <Button Text="Delete" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="DeleteDogClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
