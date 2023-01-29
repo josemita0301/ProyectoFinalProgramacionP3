@@ -22,7 +22,6 @@
                         <Label Grid.Column="3" Text= "{Binding Name}" FontSize="22" HorizontalOptions="Start"/>
                         <Label Grid.Column="8" Text= "{Binding Description}" FontSize="22" TextColor="Silver" HorizontalTextAlignment="Center"/>
                         <Button Grid.Column="7" Text="Adopt this dog!" Clicked="AdoptButton" Margin="10" HorizontalOptions="End"/>
-                        <Label Text= "{Binding datetime}" FontSize="22" HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
