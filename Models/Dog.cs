@@ -24,7 +24,6 @@ namespace ProyectoFinalProgramacion.Models
         public string Email { get; set; }
         public string imageRoute { get; set; }
 
-        public int OldOwnerId { get; set; }
 
     }
 

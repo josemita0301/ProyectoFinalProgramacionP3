@@ -10,5 +10,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(Views.UploadDogPage), typeof(Views.UploadDogPage));
         Routing.RegisterRoute(nameof(Views.DogPage), typeof(Views.DogPage));
         Routing.RegisterRoute(nameof(Views.FormPage), typeof(Views.FormPage));
+        Routing.RegisterRoute(nameof(Views.LoginPage), typeof(Views.LoginPage));
     }
 }

@@ -7,6 +7,7 @@
              Shell.FlyoutBehavior = "Flyout"
              Shell.FlyoutItemIsVisible="True">
 
+    
     <Grid RowDefinitions="*,Auto">
         <CollectionView x:Name="dogsList" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
@@ -14,17 +15,19 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="4*" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="{Binding Id}" />
-                        <Image Grid.Column="1" Source= "{Binding imageRoute}" HeightRequest="35" HorizontalOptions="Start"/>
-                        <Label Grid.Column="2" Text= "{Binding Name}" FontSize="22"/>
-                        <Label Grid.Column="3" Text= "{Binding Description}" FontSize="22" TextColor="Silver"/>
+                        <Label Text="{Binding Id}" HorizontalOptions="Start"/>
+                        <Image Source= "{Binding imageRoute}" HeightRequest="35" HorizontalOptions="Start"/>
+                        <Label Grid.Column="3" Text= "{Binding Name}" FontSize="22" HorizontalOptions="Start"/>
+                        <Label Grid.Column="8" Text= "{Binding Description}" FontSize="22" TextColor="Silver" HorizontalTextAlignment="Center"/>
+                        <Button Grid.Column="7" Text="Adopt this dog!" Clicked="AdoptButton" Margin="10" HorizontalOptions="End"/>
+                        <Label Text= "{Binding datetime}" FontSize="22" HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="1" Text="JM_Añadir nuevo registro" Clicked="OnItemAdded" Margin="20"/>
+        <Button Grid.Row="1" Text="Add a dog" Clicked="OnItemAdded" Margin="20"/>
     </Grid>
     
 </ContentPage>

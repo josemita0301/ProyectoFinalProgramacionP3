@@ -3,12 +3,21 @@ using System.Net.Security;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using ProyectoFinalProgramacion.Models;
 
 namespace ProyectoFinalProgramacion.Views;
 
+[QueryProperty("Item", "Item")]
 public partial class FormPage : ContentPage
 {
-	public FormPage()
+
+    public Dog Item
+    {
+        get => BindingContext as Dog;
+        set => BindingContext = value;
+    }
+
+    public FormPage()
 	{
 		InitializeComponent();
 	}

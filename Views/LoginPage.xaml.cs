@@ -24,8 +24,12 @@ public partial class LoginPage : ContentPage
         {
             if((usuario.UserName ==  UsernameField.Text) && (usuario.Password == PasswordField.Text))
             {
-                await Shell.Current.GoToAsync(nameof(DogPage));
-                return;
+                App.loggedUser = usuario;
+
+                await Shell.Current.GoToAsync(nameof(DogPage), true, new Dictionary<string, object>()
+                {
+                    ["Item"] = Item
+                });
             }   
         }
         

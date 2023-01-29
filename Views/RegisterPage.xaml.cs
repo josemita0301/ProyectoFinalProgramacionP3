@@ -5,6 +5,7 @@ namespace ProyectoFinalProgramacion.Views;
 [QueryProperty("Item", "Item")]
 public partial class RegisterPage : ContentPage
 {
+    
     public User Item
     {
         get => BindingContext as User;
@@ -12,6 +13,9 @@ public partial class RegisterPage : ContentPage
     }
     public RegisterPage()
 	{
+        if (App.loggedUser != null)
+            Item = App.loggedUser;
+
 		InitializeComponent();
 	}
 
@@ -20,10 +24,18 @@ public partial class RegisterPage : ContentPage
         GetImageRoute();
         App.BetterHomeRepo.AddNewUser(Item);
 
-        await Shell.Current.GoToAsync(nameof(LoginPage), true, new Dictionary<string, object>()
+        if (App.loggedUser == null)
         {
-            ["Item"] = Item
-        });
+            await Shell.Current.GoToAsync(nameof(LoginPage), true, new Dictionary<string, object>()
+            {
+                ["Item"] = Item
+            });
+        }
+        else
+        {
+            await Shell.Current.GoToAsync(nameof(DogPage));
+        }
+        
     }
 
     private void GetImageRoute()
