@@ -22,7 +22,7 @@ namespace ProyectoFinalProgramacion.SearchHandlers
             }
             else
             {
-                ItemsSource = Users.Where(user => user.Name.ToLower().Contains(newValue.ToLower())).ToList();
+                ItemsSource = Users.Where(user => user.UserName.ToLower().Contains(newValue.ToLower())).ToList();
             }
         }
 
