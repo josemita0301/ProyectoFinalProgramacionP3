@@ -36,7 +36,7 @@
             <Button Text="Enter" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="LoginButton"/>
 
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="You don't have an account?" TextColor="Gray"/>
+                <Label Text="You don't have an account?" TextColor="Gray" HorizontalOptions="Center"/>
                 <Button Text="Register here" TextColor="#50b3f2" BackgroundColor="Black" WidthRequest="200" CornerRadius="20" HorizontalOptions="Center" Clicked="RegisterButton"/>
             </StackLayout>
         </VerticalStackLayout>
