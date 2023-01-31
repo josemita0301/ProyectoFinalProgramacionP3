@@ -36,5 +36,8 @@ namespace ProyectoFinalProgramacion.Models
         public string phoneNumber { get; set; }
 
         public string imageRoute { get; set; }
+        [Ignore]
+        public string UserPlusDesc => $"{UserName}: {Email}";
+
     }
 }
