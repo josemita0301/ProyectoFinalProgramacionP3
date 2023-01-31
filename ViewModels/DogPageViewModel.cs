@@ -10,7 +10,7 @@ using ProyectoFinalProgramacion.Models;
 using ProyectoFinalProgramacion.Services;
 using ProyectoFinalProgramacion.Views;
 
-namespace ProyectoFinalProgramacion.ACViewModels
+namespace ProyectoFinalProgramacion.ViewModels
 {
     public partial class DogPageViewModel : ObservableObject
     {
