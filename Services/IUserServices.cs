@@ -7,7 +7,7 @@ using ProyectoFinalProgramacion.Models;
 
 namespace ProyectoFinalProgramacion.Services
 {
-    public interface UserServices
+    public interface IUserServices
     {
         Task<List<User>> GetUsersList();
         Task<int> AddUser(User userModel);
