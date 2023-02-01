@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using MaxLengthAttribute = SQLite.MaxLengthAttribute;
 
 namespace ProyectoFinalProgramacion.Models
 {
@@ -24,6 +26,9 @@ namespace ProyectoFinalProgramacion.Models
         public string Email { get; set; }
         public string imageRoute { get; set; }
         public string Raza { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime CreationDate { get; set; }
     }
 
 

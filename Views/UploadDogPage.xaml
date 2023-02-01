@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:models="clr-namespace:ProyectoFinalProgramacion.Models"
-             xmlns:viewmodels="clr-namespace:ProyectoFinalProgramacion.ViewModels"
+             xmlns:local="clr-namespace:ProyectoFinalProgramacion.ViewModels"
              x:Class="ProyectoFinalProgramacion.Views.UploadDogPage"
              Title="UploadDog"
              Shell.FlyoutBehavior = "Flyout"
@@ -56,6 +56,11 @@
                 <RadioButton Value="No" Content="No" />
             </StackLayout>
 
+
+            <Label FontSize="14" FontAttributes="Bold" Text="Breed" Margin="0,5,5,0"/>
+            <Entry x:Name="cadena" PlaceholderColor="Gray"/>
+
+
             <StackLayout RadioButtonGroup.GroupName="icon">
                 <Label FontSize="14" FontAttributes="Bold" Text="How does the dog look?" Margin="0,5,5,0"/>
 
@@ -83,9 +88,14 @@
                 </RadioButton>
                 <Image Source="dog6.webp" HeightRequest="50" HorizontalOptions="Start"/>
 
-                <Label Text="Creation Date: " />
-                <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}" />
-                <BoxView HeightRequest="0.8" Color="Gray" />
+
+                <Label Text="Fecha" />
+                <Label x:Name="fuente"
+                Text="{Binding DateTime, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}">
+                    <Label.BindingContext>
+                        <local:DateViewModel />
+                    </Label.BindingContext>
+                </Label>
             </StackLayout>
 
             <Button Text="Enter" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="UploadDogClicked"/>

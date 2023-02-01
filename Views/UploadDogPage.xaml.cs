@@ -23,7 +23,8 @@ public partial class UploadDogPage : ContentPage
     public void UploadDogClicked(object sender, EventArgs e)
     {
         GetImage();
-        CargarApi();
+        //CargarApi();
+        Item.CreationDate = DateTime.Parse(fuente.Text);
         App.BetterHomeRepo.AddNewDog(Item);
         Shell.Current.GoToAsync("..");
     }
@@ -86,7 +87,7 @@ public partial class UploadDogPage : ContentPage
             string responseFromServer = reader.ReadToEnd();
             responseFromServer = responseFromServer.Trim();            
             var resultado = JsonConvert.DeserializeObject<Root>(responseFromServer);             
-            cadena.Text = resultado.ToString();
+            //cadena.Text = resultado[0].ToString();
             //dogList = resultado.ToList();
         }
         response.Close();
