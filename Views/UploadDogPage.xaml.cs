@@ -1,10 +1,14 @@
+using Newtonsoft.Json;
 using ProyectoFinalProgramacion.Models;
+using ProyectoFinalProgramacion.API;
+using System.Net;
 
 namespace ProyectoFinalProgramacion.Views;
 
 [QueryProperty("Item", "Item")]
 public partial class UploadDogPage : ContentPage
 {
+    List <Dog> dogList;
     public Dog Item
     {
         get => BindingContext as Dog;
@@ -19,6 +23,7 @@ public partial class UploadDogPage : ContentPage
     public void UploadDogClicked(object sender, EventArgs e)
     {
         GetImage();
+        CargarApi();
         App.BetterHomeRepo.AddNewDog(Item);
         Shell.Current.GoToAsync("..");
     }
@@ -56,5 +61,34 @@ public partial class UploadDogPage : ContentPage
         {
             Item.imageRoute = "dog6.webp";
         }
+    }
+
+    void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+        if (selectedIndex != -1)
+        {
+            //monkeyNameLabel.Text = (string)picker.ItemsSource[selectedIndex];
+        }
+    }
+
+    //Implementación de la API
+    public void CargarApi()
+    {
+        WebRequest request = WebRequest.Create("https://dog.ceo/api/breed/"+ cadena + "/images/random");
+        //request.Headers.Add("X-TheySaidSo-Api-Secret", "YOUR API KEY HERE");
+        WebResponse response = request.GetResponse();
+        var client = new HttpClient(); using (Stream dataStream = response.GetResponseStream())
+        {
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            responseFromServer = responseFromServer.Trim();            
+            var resultado = JsonConvert.DeserializeObject<Root>(responseFromServer);             
+            cadena.Text = resultado.ToString();
+            //dogList = resultado.ToList();
+        }
+        response.Close();
     }
 }

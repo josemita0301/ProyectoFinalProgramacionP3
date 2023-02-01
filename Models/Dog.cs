@@ -23,6 +23,7 @@ namespace ProyectoFinalProgramacion.Models
         public string Size { get; set; }
         public string Email { get; set; }
         public string imageRoute { get; set; }
+        public string Raza { get; set; }
     }
 
 
