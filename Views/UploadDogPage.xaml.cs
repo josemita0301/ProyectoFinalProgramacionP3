@@ -22,6 +22,7 @@ public partial class UploadDogPage : ContentPage
 
     public void UploadDogClicked(object sender, EventArgs e)
     {
+        Item.fact = factRandom.Text;
         GetImage();
         //CargarApi();
         Item.CreationDate = DateTime.Parse(fuente.Text);
@@ -65,19 +66,29 @@ public partial class UploadDogPage : ContentPage
     }
 
     //Implementación de la API
-    public void CargarApi()
+    private void OnGenerateClicked(object sender, EventArgs e)
     {
-        WebRequest request = WebRequest.Create("https://dog.ceo/api/breed/"+ cadena + "/images/random");
-        //request.Headers.Add("X-TheySaidSo-Api-Secret", "YOUR API KEY HERE");
-        WebResponse response = request.GetResponse();
-        var client = new HttpClient(); using (Stream dataStream = response.GetResponseStream())
+        WebRequest request = WebRequest.Create("https://dogapi.dog/api/v2/facts");
+        //request.Headers.Add("", "YOUR API KEY HERE");
+        WebResponse response = request.GetResponse();
+        //var client = new HttpClient();
+
+        using (Stream dataStream = response.GetResponseStream())
         {
-            StreamReader reader = new StreamReader(dataStream);
+            StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
-            responseFromServer = responseFromServer.Trim();            
-            var resultado = JsonConvert.DeserializeObject<Root>(responseFromServer);             
-            //cadena.Text = resultado[0].ToString();
-            //dogList = resultado.ToList();
+            responseFromServer = responseFromServer.Trim();
+            var resultado = JsonConvert.DeserializeObject<Rootobject>(responseFromServer); // nombre de la clase q viene de la api - og json - objeto
+            // retorna lista
+
+            // generar num rec random
+            Random rnd = new Random();
+            int numRnd = rnd.Next(0, 200);
+            int numLista = numRnd;
+
+            factRandom.Text = resultado.data[0].attributes.body;
+
+
         }
         response.Close();
     }

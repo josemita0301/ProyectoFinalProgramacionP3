@@ -96,6 +96,28 @@
                         <local:DateViewModel />
                     </Label.BindingContext>
                 </Label>
+
+                <Label
+                Text="Learn while you browse! Add a dog fact to your post"
+                SemanticProperties.HeadingLevel="Level3"
+                SemanticProperties.Description="add fact"
+                FontSize="14"
+                HorizontalOptions="Center" />
+
+                <Button
+                x:Name="GenerateBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Gets a random fact"
+                Clicked="OnGenerateClicked"
+                HorizontalOptions="Center" />
+
+                <Label
+                x:Name="factRandom"
+                Text="{Binding fact}"
+                SemanticProperties.HeadingLevel="Level3"
+                FontSize="14"
+                HorizontalOptions="Center" />
+
             </StackLayout>
 
             <Button Text="Enter" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Clicked="UploadDogClicked"/>

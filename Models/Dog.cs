@@ -29,6 +29,8 @@ namespace ProyectoFinalProgramacion.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime CreationDate { get; set; }
+
+        public string fact { get; set; }
     }
 
 
