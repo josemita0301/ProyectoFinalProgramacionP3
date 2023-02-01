@@ -64,17 +64,6 @@ public partial class UploadDogPage : ContentPage
         }
     }
 
-    void OnPickerSelectedIndexChanged(object sender, EventArgs e)
-    {
-        var picker = (Picker)sender;
-        int selectedIndex = picker.SelectedIndex;
-
-        if (selectedIndex != -1)
-        {
-            //monkeyNameLabel.Text = (string)picker.ItemsSource[selectedIndex];
-        }
-    }
-
     //Implementación de la API
     public void CargarApi()
     {
